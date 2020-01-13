@@ -1,0 +1,18 @@
+---
+- name: create vrf within tenant
+  hosts: apic
+  gather_facts: no
+  connection: local
+  tasks:
+  - name: Add a new tenant
+    aci_vrf:
+      host: devnetsbx-netacad-apicem-1.cisco.com
+      username: admin
+      password: ciscopsdt
+      vrf: DC2-VRF
+      tenant: DC2
+      description: VRF for demo
+      policy_control_direction: ingress
+      policy_control_preference: enforced
+      state: present
+      validate_certs: no

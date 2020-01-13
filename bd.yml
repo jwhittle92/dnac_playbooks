@@ -1,0 +1,28 @@
+---
+- name: create ACI tenant
+  hosts: apic
+  gather_facts: no
+  connection: local
+  tasks:
+  - name: Add a new bridge domain
+    aci_bd:
+      host: devnetsbx-netacad-apicem-1.cisco.com
+      username: admin
+      password: ciscopsdt
+      tenant: DC2
+      bd: DC2-BD
+      vrf: DC2-VRF
+      description: Demo BD
+      state: present
+      validate_certs: no
+  - name: Add subnets to BD
+    aci_bd:
+      host: devnetsbx-netacad-apicem-1.cisco.com
+      username: admin
+      password: ciscopsdt
+      tenant: DC2
+      bd: DC2-BD
+      gateway: 192.2.200.254
+      mask: 24
+      state: present
+      validate_certs: no
