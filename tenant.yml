@@ -6,9 +6,9 @@
   tasks:
   - name: Add a new tenant
     aci_tenant:
-      host: {{ apic }}
-      username: {{ username }}
-      password: {{ password }}
+      host: "{{ apic }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
       tenant: DC2
       description: Production tenant
       state: present
