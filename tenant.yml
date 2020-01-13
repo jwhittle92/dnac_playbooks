@@ -1,0 +1,15 @@
+---
+- name: create ACI tenant
+  hosts: apic
+  gather_facts: no
+  connection: local
+  tasks:
+  - name: Add a new tenant
+    aci_tenant:
+      host: devnetsbx-netacad-apicem-1.cisco.com
+      username: admin
+      password: ciscopsdt
+      tenant: JW_Tenant
+      description: Production tenant
+      state: present
+      validate_certs: no
