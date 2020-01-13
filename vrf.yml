@@ -6,9 +6,9 @@
   tasks:
   - name: Add a new tenant
     aci_vrf:
-      host: devnetsbx-netacad-apicem-1.cisco.com
-      username: admin
-      password: ciscopsdt
+      host: {{ apic }}
+      username: {{ username }}
+      password: {{ password }}
       vrf: DC2-VRF
       tenant: DC2
       description: VRF for demo

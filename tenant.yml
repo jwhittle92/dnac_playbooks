@@ -6,10 +6,10 @@
   tasks:
   - name: Add a new tenant
     aci_tenant:
-      host: devnetsbx-netacad-apicem-1.cisco.com
-      username: admin
-      password: ciscopsdt
-      tenant: JW_Tenant
+      host: {{ apic }}
+      username: {{ username }}
+      password: {{ password }}
+      tenant: DC2
       description: Production tenant
       state: present
       validate_certs: no

@@ -6,9 +6,9 @@
   tasks:
   - name: Add a new bridge domain
     aci_bd:
-      host: devnetsbx-netacad-apicem-1.cisco.com
-      username: admin
-      password: ciscopsdt
+      host: {{ apic }}
+      username: {{ username }}
+      password: {{ password }}
       tenant: DC2
       bd: DC2-BD
       vrf: DC2-VRF
@@ -17,9 +17,9 @@
       validate_certs: no
   - name: Add subnets to BD
     aci_bd:
-      host: devnetsbx-netacad-apicem-1.cisco.com
-      username: admin
-      password: ciscopsdt
+      host: {{ apic }}
+      username: {{ username }}
+      password: {{ password }}
       tenant: DC2
       bd: DC2-BD
       gateway: 192.2.200.254
