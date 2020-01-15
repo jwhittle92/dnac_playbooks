@@ -1,4 +1,5 @@
 ---
+- hosts: apic
 - import_playbook: tenant.yml
 - import_playbook: vrf.yml
 - import_playbook: bd.yml

@@ -1,5 +1,4 @@
-
 all:
-  hosts:
-    apic:
-      ansible_host: 198.18.133.200
+  hosts: apic
+  vars:
+    ansible_host: 198.18.133.200
