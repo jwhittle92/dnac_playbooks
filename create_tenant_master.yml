@@ -1,5 +1,6 @@
 ---
 - hosts: apic
+- gather_facts: no
 - import_playbook: tenant.yml
 - import_playbook: vrf.yml
 - import_playbook: bd.yml
