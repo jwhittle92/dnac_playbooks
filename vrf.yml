@@ -1,7 +1,7 @@
 ---
 - name: include creds
-  include_vars:
-    file: creds.yml
+  vars_files:
+    creds.yml
 
 - name: create vrf within tenant
   hosts: apic
