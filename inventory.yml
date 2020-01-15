@@ -1,7 +1,5 @@
 
-[apic]
-apic: 198.18.133.200
-username: admin
-passsword: C1sco12345
-
-
+all:
+  hosts:
+    apic:
+      ansible_host: 198.18.133.200
