@@ -1,5 +1,7 @@
 ---
-- hosts: apic
+- name: Create ACI Constructs
+- hosts: aci
+- gather_facts: no
 - import_playbook: tenant.yml
 - import_playbook: vrf.yml
 - import_playbook: bd.yml

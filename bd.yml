@@ -1,16 +1,14 @@
 ---
 - name: include creds
+  hosts: aci
+  gather_facts: false
   vars_files:
     creds.yml
 
-- name: create ACI tenant
-  hosts: apic
-  gather_facts: no
-  connection: local
   tasks:
   - name: Add a new bridge domain
     aci_bd:
-      host: "{{ apic }}"
+      host: aci
       username: "{{ username }}"
       password: "{{ password }}"
       tenant: DC2
@@ -21,7 +19,7 @@
       validate_certs: no
   - name: Add subnets to BD
     aci_bd:
-      host: "{{ apic }}"
+      host: aci
       username: "{{ username }}"
       password: "{{ password }}"
       tenant: DC2
