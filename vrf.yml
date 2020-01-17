@@ -1,16 +1,14 @@
 ---
 - name: include creds
+  hosts: aci
+  gather_facts: no
   vars_files:
     creds.yml
 
-- name: create vrf within tenant
-  hosts: apic
-  gather_facts: no
-  connection: local
   tasks:
   - name: Add a new tenant
     aci_vrf:
-      host: "{{ apic }}"
+      host: aci
       username: "{{ username }}"
       password: "{{ password }}"
       vrf: DC2-VRF

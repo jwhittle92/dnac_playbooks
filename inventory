@@ -1,0 +1,7 @@
+
+
+[aci:vars]
+ansible_host=198.18.133.200
+
+[aci]
+apic
