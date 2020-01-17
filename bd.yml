@@ -1,4 +1,8 @@
 ---
+- name: include creds
+  vars_files:
+    creds.yml
+
 - name: create ACI tenant
   hosts: apic
   gather_facts: no

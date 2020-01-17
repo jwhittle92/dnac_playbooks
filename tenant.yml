@@ -3,20 +3,17 @@
   vars_files:
     creds.yml
 
-- name: create vrf within tenant
+- name: create ACI tenant
   hosts: apic
   gather_facts: no
   connection: local
   tasks:
   - name: Add a new tenant
-    aci_vrf:
+    aci_tenant:
       host: "{{ apic }}"
       username: "{{ username }}"
       password: "{{ password }}"
-      vrf: DC2-VRF
       tenant: DC2
-      description: VRF for demo
-      policy_control_direction: ingress
-      policy_control_preference: enforced
+      description: Production tenant
       state: present
       validate_certs: no
