@@ -1,20 +1,10 @@
 ---
 - name: include creds
-<<<<<<< HEAD
-=======
   hosts: aci
->>>>>>> 867584ec257e56f414907febc44c0cb39e20718e
   gather_facts: false
   vars_files:
     creds.yml
 
-<<<<<<< HEAD
-- name: create ACI tenant
-  hosts: apic
-  gather_facts: false
-  connection: local
-=======
->>>>>>> 867584ec257e56f414907febc44c0cb39e20718e
   tasks:
   - name: Add a new bridge domain
     aci_bd:

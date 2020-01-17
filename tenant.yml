@@ -1,22 +1,5 @@
 ---
 - name: include creds
-<<<<<<< HEAD
-  hosts: "{{ apic }}"
-  gather_facts: false
-  vars_files:
-    creds.yml
-    
-  tasks:
-    - name: Add a new tenant
-      aci_tenant:
-        host: "{{ apic }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        tenant: DC2
-        description: Production tenant
-        state: present
-        validate_certs: no
-=======
   hosts: aci
   gather_facts: false
   vars_files:
@@ -33,4 +16,3 @@
       description: Production tenant
       state: present
       validate_certs: no
->>>>>>> 867584ec257e56f414907febc44c0cb39e20718e

@@ -1,7 +1,8 @@
 ---
 - name: Create ACI Constructs
-- hosts: aci
-- gather_facts: no
+  hosts: aci
+  gather_facts: false
+
 - import_playbook: tenant.yml
 - import_playbook: vrf.yml
 - import_playbook: bd.yml
