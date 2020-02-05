@@ -8,11 +8,7 @@
   tasks:
 
   - name: Add a new tenant
-    aci_tenant:
-      host: aci
-      username: "{{ username }}"
-      password: "{{ password }}"
-      tenant: DC2
-      description: Production tenant
-      state: present
-      validate_certs: no
+    uri:
+	    url: https://dcloud-dna-center-inst-sjc.cisco.com/dna/intent/api/v1/enterprise-ssid?ssidName=<ssidName>
+	    method: GET
+	    headers: 
