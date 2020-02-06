@@ -1,0 +1,19 @@
+---
+- name: include creds
+  hosts: apic
+  connection: local
+  gather_facts: false
+  vars_files:
+    creds.yml
+
+  tasks:
+
+  - name: Add a new tenant
+    uri:
+      user: "{{ username }}"
+      password: "{{ password }}"
+      method: POST
+      body_format: json
+      url: https://sandboxapicdc.cisco.com/api/node/mo/uni/tn-ISEisBAD.json
+      body: "{"fvTenant":{"attributes":{"dn":"uni/tn-ISEisBAD","name":"ISEisBAD","rn":"tn-ISEisBAD","status":"created"},"children":[]}}"
+      body_format: json
