@@ -17,3 +17,4 @@
       url: https://sandboxapicdc.cisco.com/api/node/mo/uni/tn-ISEisBAD.json
       body: "{'fvTenant':{'attributes':{'dn':'uni/tn-ISEisBAD','name':'ISEisBAD','rn':'tn-ISEisBAD','status':'created'},'children':[]}}"
       body_format: json
+      validate_certs: no
