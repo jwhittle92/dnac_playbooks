@@ -12,14 +12,7 @@
       method: POST
       body_format: json
       url: https://sandboxapicdc.cisco.com/api/aaaLogin.json
-      body: "{
-      'aaaUser': {
-              'attributes': {
-                  'name': 'admin',
-                  'pwd': 'ciscopsdt'
-              }
-          }
-      }"
+      body: "{'aaaUser':{'attributes':{'name':'{{username}}','pwd':'{{password}'}}}"
       validate_certs: no
   - name: Add a new tenant
     uri:
