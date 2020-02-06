@@ -1,6 +1,7 @@
 ---
 - name: include creds
   hosts: dnac
+  connection: local
   gather_facts: false
   vars_files:
     dnac_creds.yml
@@ -9,6 +10,7 @@
 
   - name: Add a new tenant
     uri:
-	    url: https://dcloud-dna-center-inst-sjc.cisco.com/dna/intent/api/v1/enterprise-ssid?ssidName=<ssidName>
-	    method: GET
-	    headers: 
+      user: "{{ username }}"
+      password: "{{ password }}"
+      method: GET
+      url: https://sandboxdnac2.cisco.com/dna/intent/api/v1/business/ssid

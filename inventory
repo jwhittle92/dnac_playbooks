@@ -8,7 +8,7 @@ apic
 
 
 [dnac:vars]
-ansible_host=198.18.133.200
+ansible_port=443
 
 [dnac]
 sandboxdnac2.cisco.com

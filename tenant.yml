@@ -9,7 +9,7 @@
 
   - name: Add a new tenant
     aci_tenant:
-      host: aci
+      host: "{{ inventory_hostname }}"
       username: "{{ username }}"
       password: "{{ password }}"
       tenant: DC2

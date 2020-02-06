@@ -1,3 +1,3 @@
 username: "devnetuser"
 password: "Cisco123!"
-apic: "sandboxdnac2.cisco.com"
+dnac: "sandboxdnac2.cisco.com"
