@@ -1,0 +1,40 @@
+---
+- name: Get VLANs and debug list
+  hosts: dnac
+  connection: local
+  gather_facts: False
+  vars_files:
+    - creds.yml
+
+  tasks:
+    - name: Login to DNAC
+      uri:
+        url: https://dcloud-dna-center-inst-sjc.cisco.com/dna/system/api/v1/auth/token
+        method: POST
+        user: "{{ username }}"
+        password: "{{ password }}"
+        force_basic_auth: yes
+        status_code: 200
+        headers:
+          'content-type': 'application/json'
+      register: token
+    - name: Create Enterprise SSID
+      uri:
+        url: https://dcloud-dna-center-inst-sjc.cisco.com/dna/intent/api/v1/enterprise-ssid
+        method: POST
+        body_format: json
+        body:
+          {
+              "name": "string",
+              "securityLevel": "string",
+              "passphrase": "string",
+              "enableFastLane": "boolean",
+              "enableMACFiltering": "boolean",
+              "trafficType": "string",
+              "radioPolicy": "string",
+              "enableBroadcastSSID": "boolean",
+              "fastTransition": "string"
+          }
+        headers:
+          'content-type': 'application/json'
+          'x-auth-header': "{{ token.json.Token }}"
