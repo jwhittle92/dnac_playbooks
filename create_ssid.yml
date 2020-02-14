@@ -23,17 +23,16 @@
         url: https://dcloud-dna-center-inst-sjc.cisco.com/dna/intent/api/v1/enterprise-ssid
         method: POST
         body_format: json
+        validate_certs: no
         body:
           {
-              "name": "string",
-              "securityLevel": "string",
-              "passphrase": "string",
-              "enableFastLane": "boolean",
-              "enableMACFiltering": "boolean",
-              "trafficType": "string",
-              "radioPolicy": "string",
-              "enableBroadcastSSID": "boolean",
-              "fastTransition": "string"
+              "name": "Test_SSID",
+              "securityLevel": "WPA2_PERSONAL",
+              "passphrase": "Cisco123",
+              "enableFastLane": "True",
+              "enableMACFiltering": "False",
+              "trafficType": "voicedata",
+              "enableBroadcastSSID": "True",
           }
         headers:
           'content-type': 'application/json'

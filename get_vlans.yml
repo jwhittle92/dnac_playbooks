@@ -25,3 +25,8 @@
         headers:
           'content-type': 'application/json'
           'x-auth-header': "{{ token.json.Token }}"
+        validate_certs: no
+      register: vlans
+    - debug:
+      var: vlans
+      verbosity: 4
