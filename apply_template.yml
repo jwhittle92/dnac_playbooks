@@ -1,0 +1,47 @@
+---
+- name: Apply template to
+  hosts: dnac
+  connection: local
+  gather_facts: False
+  vars_files:
+    - creds.yml
+
+  tasks:
+    - name: Login to DNAC
+      uri:
+        url: https://dcloud-dna-center-inst-sjc.cisco.com/dna/system/api/v1/auth/token
+        method: POST
+        user: "{{ username }}"
+        password: "{{ password }}"
+        force_basic_auth: yes
+        headers:
+          'content-type': 'application/json'
+        validate_certs: no
+      register: token
+    - name: Query templates
+      uri:
+        url: https://dcloud-dna-center-inst-sjc.cisco.com/dna/intent/api/v1/template-programmer/template/"{{templateID}}"
+        method: POST
+        validate_certs: no
+        body_format: json
+        body:
+          {
+            "forcePushTemplate": "false",
+            "isComposite": "false",
+            "mainTemplateId": "string",
+            "memberTemplateDeploymentInfo": [
+              null
+            ],
+            "targetInfo": [
+              {
+                  "hostName": "string",
+                  "id": "string",
+                  "params": {},
+                  "type": "string"
+              }
+            ],
+            "templateId": "string"
+          }
+        headers:
+          'content-type': 'application/json'
+          'x-auth-header': "{{ token.json.Token }}"
